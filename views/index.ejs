@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title>Joke Generator</title>
+</head>
+<body style="background-color: #f0f2f5; font-family: 'Comic Sans MS', sans-serif;">
+
+    <main class="container min-vh-100 d-flex flex-column justify-content-center align-items-center" >
+        <div class="card p-4 shadow" style="width: 100%; max-width: 800px;">
+            <h1 class="mb-4">Joke Generator</h1>
+            <form action="/joke" method="POST">
+                <label for="name">Enter your name:</label>
+                <div class="mt-2">
+                    <input class="form-control" type="text" id="name" name="name" required>
+                    <button type="submit" class="btn btn-primary mt-2">Get Joke</button>
+                </div>
+            </form>
+
+            <% if (joke) { %>
+                <div class="mt-4">
+                    <h2 class="mb-3">Here's your joke!</h2>
+                    <p style="font-size: 1.25rem;"><%= joke %></p>
+                </div>
+            <% } %>
+
+            <% if (error) { %>
+                <div class="alert alert-danger mt-4" role="alert">
+                    <p><%= error %></p> 
+                </div>
+            <% } %>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
